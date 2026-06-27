@@ -32,8 +32,11 @@ const HowItWorks = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
-          {/* Connecting line for desktop */}
-          <div className="hidden md:block absolute top-12 left-1/6 right-1/6 h-[2px] bg-gradient-to-r from-blue-500/0 via-purple-500/50 to-blue-500/0 z-0 w-2/3 mx-auto" />
+          {/* Connecting line for desktop:
+              left-[16.66%] and right-[16.66%] offsets align the line exactly with the centers 
+              of the first and third columns (1/6 and 5/6 points of a 3-column grid). 
+              The gradient flows between step 1 (blue), step 2 (purple), and step 3 (green) icons. */}
+          <div className="hidden md:block absolute top-12 left-[16.66%] right-[16.66%] h-[2px] bg-gradient-to-r from-blue-500/60 via-purple-500/60 to-green-500/60 z-0" />
 
           {steps.map((step, index) => (
             <div key={index} className="relative z-10 flex flex-col items-center text-center group">

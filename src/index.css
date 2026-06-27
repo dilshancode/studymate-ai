@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -19,6 +19,30 @@
     @apply bg-navy-800/40 backdrop-blur-md border border-slate-700/50 shadow-xl;
   }
   
+  /* Custom border effect simulating a 'rim-light' on glass layers */
+  .rim-light-border {
+    position: relative;
+    /* Prevents the background color from bleeding into the transparent border boundary */
+    background-clip: padding-box; 
+    border: 1px solid transparent;
+  }
+
+  /* Overlay gradient border using a pseudo-element behind the main container */
+  .rim-light-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -1px; /* Offset matching the border width (1px) */
+    border-radius: inherit; /* Align with parent container's rounded corner configuration */
+    /* top-down linear gradient (from white at 15% opacity to 2% opacity) */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.02));
+    pointer-events: none;
+  }
+  
   .glass-nav {
     @apply bg-navy-900/80 backdrop-blur-lg border-b border-slate-800/60 shadow-sm;
   }
@@ -27,7 +51,8 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500;
   }
   
+  /* Primary button class with hover scaling and enhanced gradient shadow glow */
   .bg-gradient-primary {
-    @apply bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 transition-all duration-300;
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 transition-all duration-300 hover:scale-105 active:scale-95 transform hover:shadow-[0_0_25px_rgba(59,130,246,0.4)];
   }
 }

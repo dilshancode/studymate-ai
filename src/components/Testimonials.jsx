@@ -86,6 +86,12 @@ const Testimonials = () => {
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-navy-900/90 to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-navy-900/90 to-transparent z-10 pointer-events-none" />
 
+        {/* 
+          Infinite scrolling marquee loop:
+          By rendering two identical lists side-by-side, we can translate the container 
+          from 0% to -50% (exactly the width of one list). The linear ease and repeat 
+          infinity make the wrap-around seamless, simulating an endless queue.
+        */}
         <motion.div 
           className="flex gap-8"
           animate={{ x: ["0%", "-50%"] }}

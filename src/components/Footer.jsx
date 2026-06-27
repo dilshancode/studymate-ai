@@ -67,6 +67,7 @@ const Footer = () => {
         
         <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-slate-500 text-sm">
+            {/* Dynamically display the current calendar year to ensure copyright details stay up-to-date */}
             &copy; {new Date().getFullYear()} StudyMate AI, Inc. All rights reserved.
           </p>
           <div className="flex gap-6">

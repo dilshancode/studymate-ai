@@ -4,10 +4,12 @@ import { ArrowRight } from 'lucide-react';
 const CTA = () => {
   return (
     <section className="py-24 relative overflow-hidden">
+      {/* Background gradients that blend into the main landing page canvas */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-navy-900 to-purple-900/40 z-0" />
       
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="glass-card rounded-3xl p-10 md:p-16 text-center border-t-2 border-t-blue-500/30 overflow-hidden relative">
+          {/* Subtle colored glow blobs placed behind text to create depth and contrast */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px]" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/20 rounded-full blur-[80px]" />
           

@@ -81,7 +81,7 @@ const Hero = () => {
         >
           <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-transparent z-20 pointer-events-none h-full w-full rounded-2xl" style={{ top: '60%' }} />
           
-          <div className="glass-card rounded-2xl overflow-hidden border border-slate-700/50 shadow-2xl relative z-10">
+          <div className="glass-card rim-light-border rounded-2xl overflow-hidden shadow-2xl relative z-10">
             {/* Mockup Header */}
             <div className="bg-navy-900/90 border-b border-slate-700/50 px-4 py-3 flex items-center gap-2">
               <div className="flex gap-1.5">
@@ -131,9 +131,25 @@ const Hero = () => {
                   {[1, 2, 3].map((i) => (
                     <motion.div 
                       key={i}
-                      initial={{ scale: 0.9, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{ duration: 0.3, delay: 0.6 + (i * 0.1) }}
+                      initial={{ scale: 0.9, opacity: 0, y: 0 }}
+                      animate={{ 
+                        scale: 1, 
+                        opacity: 1,
+                        // y keyframes animate up (-6px) and back to rest for a floating feel
+                        y: [0, -6, 0]
+                      }}
+                      transition={{ 
+                        // Initial scale & fade animations run once
+                        scale: { duration: 0.3, delay: 0.6 + (i * 0.1) },
+                        opacity: { duration: 0.3, delay: 0.6 + (i * 0.1) },
+                        // Floating y animation loops infinitely with slightly staggered speed
+                        y: {
+                          repeat: Infinity,
+                          duration: 4 + i,
+                          ease: "easeInOut",
+                          delay: 1.2
+                        }
+                      }}
                       className="bg-slate-800/40 rounded-xl p-4 border border-slate-700/50"
                     >
                       <div className="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center mb-3">
@@ -146,9 +162,22 @@ const Hero = () => {
                 </div>
                 
                 <motion.div 
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 1 }}
+                  initial={{ opacity: 0, y: 0 }}
+                  animate={{ 
+                    opacity: 1,
+                    // Animate opposite direction (down by 6px) to contrast with cards above
+                    y: [0, 6, 0]
+                  }}
+                  transition={{ 
+                    opacity: { duration: 0.5, delay: 1 },
+                    // Separate loop config to keep floating elements dynamic
+                    y: {
+                      repeat: Infinity,
+                      duration: 6,
+                      ease: "easeInOut",
+                      delay: 1.5
+                    }
+                  }}
                   className="flex-1 bg-slate-800/30 rounded-xl border border-slate-700/30 p-5 flex flex-col gap-4"
                 >
                   <div className="flex justify-between items-center">

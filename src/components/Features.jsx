@@ -37,6 +37,10 @@ const features = [
 const Features = () => {
   return (
     <section id="features" className="py-24 relative overflow-hidden">
+      {/* Orbital background glow blobs to create visual depth behind the cards */}
+      <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 right-1/4 translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[100px] pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-sm font-bold tracking-widest text-blue-500 uppercase mb-3">Supercharge Your Learning</h2>
@@ -50,8 +54,10 @@ const Features = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
+              // Lift the card slightly (-translate-y-2) when hovered to create interactive depth
               className="glass-card rounded-2xl p-8 hover:-translate-y-2 transition-transform duration-300 group cursor-pointer"
             >
+              {/* Grow the icon wrapper slightly when the parent card is hovered */}
               <div className="w-12 h-12 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 {feature.icon}
               </div>

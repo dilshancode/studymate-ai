@@ -25,6 +25,7 @@ const faqs = [
 ];
 
 const FAQ = () => {
+  // Track the index of the currently expanded FAQ item; -1 means all items are collapsed
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
@@ -43,6 +44,7 @@ const FAQ = () => {
             >
               <button
                 className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
+                // Toggle expansion state: if clicked item is already open, collapse all (-1); otherwise set to this index
                 onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
               >
                 <span className="font-semibold text-white text-lg">{faq.question}</span>
@@ -53,8 +55,13 @@ const FAQ = () => {
                 )}
               </button>
               
+              {/* 
+                Animate accordion height expansion smoothly using Tailwind transition-all. 
+                When active, max-height increases from 0 to 96 (max-h-96) to prevent clipping on mobile wrap-around, 
+                and opacity transitions to 100%.
+              */}
               <div 
-                className={`px-6 overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-48 pb-5 opacity-100' : 'max-h-0 opacity-0'}`}
+                className={`px-6 overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-96 pb-5 opacity-100' : 'max-h-0 opacity-0'}`}
               >
                 <p className="text-slate-400 leading-relaxed">
                   {faq.answer}

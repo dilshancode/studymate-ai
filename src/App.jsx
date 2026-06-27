@@ -11,8 +11,12 @@ import Footer from './components/Footer';
 
 function App() {
   return (
+    // min-h-screen anchors the main background color across the entire viewport height
     <div className="min-h-screen">
+      {/* Persistent global navigation bar */}
       <Navbar />
+      
+      {/* Sequential landing page sections */}
       <main>
         <Hero />
         <Features />
@@ -22,6 +26,8 @@ function App() {
         <FAQ />
         <CTA />
       </main>
+      
+      {/* Persistent footer */}
       <Footer />
     </div>
   );

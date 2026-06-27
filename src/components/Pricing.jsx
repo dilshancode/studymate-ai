@@ -50,7 +50,11 @@ const plans = [
 
 const Pricing = () => {
   return (
-    <section id="pricing" className="py-24 relative">
+    <section id="pricing" className="py-24 relative overflow-hidden">
+      {/* Orbital glow elements placed behind the pricing cards */}
+      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 right-1/3 translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/5 rounded-full blur-[120px] pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-sm font-bold tracking-widest text-purple-500 uppercase mb-3">Simple Pricing</h2>
@@ -64,7 +68,7 @@ const Pricing = () => {
           {plans.map((plan, index) => (
             <div 
               key={index} 
-              className={`glass-card rounded-3xl p-8 relative ${plan.isPopular ? 'border-purple-500/50 shadow-[0_0_40px_rgba(139,92,246,0.15)] md:-translate-y-4' : ''}`}
+              className={`glass-card rim-light-border rounded-3xl p-8 relative ${plan.isPopular ? 'border-purple-500/50 shadow-[0_0_40px_rgba(139,92,246,0.15)] md:-translate-y-4' : ''}`}
             >
               {plan.isPopular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-primary text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg">
