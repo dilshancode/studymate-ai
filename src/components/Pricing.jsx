@@ -1,5 +1,24 @@
 import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+};
 
 const plans = [
   {
@@ -56,18 +75,33 @@ const Pricing = () => {
       <div className="absolute top-1/2 right-1/3 translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <h2 className="text-sm font-bold tracking-widest text-purple-500 uppercase mb-3">Simple Pricing</h2>
           <h3 className="text-3xl md:text-5xl font-bold mb-6">Invest in your <span className="text-gradient">education</span></h3>
-          <p className="text-slate-400 text-lg">
+          <p className="text-slate-600 dark:text-slate-400 text-lg">
             Choose the plan that fits your study needs. Cancel anytime.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center"
+        >
           {plans.map((plan, index) => (
-            <div 
+            <motion.div 
               key={index} 
+              variants={cardVariants}
+              whileHover={{ y: plan.isPopular ? -20 : -8, scale: 1.02 }}
+              transition={{ duration: 0.2 }}
               className={`glass-card rim-light-border rounded-3xl p-8 relative ${plan.isPopular ? 'border-purple-500/50 shadow-[0_0_40px_rgba(139,92,246,0.15)] md:-translate-y-4' : ''}`}
             >
               {plan.isPopular && (
@@ -77,11 +111,11 @@ const Pricing = () => {
               )}
               
               <div className="text-center mb-8">
-                <h4 className="text-xl font-bold text-white mb-2">{plan.name}</h4>
-                <p className="text-slate-400 text-sm mb-6 h-10">{plan.description}</p>
+                <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{plan.name}</h4>
+                <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 h-10">{plan.description}</p>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-4xl font-bold text-white">{plan.price}</span>
-                  <span className="text-slate-500 text-sm">/{plan.period}</span>
+                  <span className="text-4xl font-bold text-slate-900 dark:text-white">{plan.price}</span>
+                  <span className="text-slate-600 dark:text-slate-500 text-sm">/{plan.period}</span>
                 </div>
               </div>
               
@@ -89,7 +123,7 @@ const Pricing = () => {
                 {plan.features.map((feature, fIndex) => (
                   <li key={fIndex} className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-purple-400 shrink-0" />
-                    <span className="text-slate-300 text-sm">{feature}</span>
+                    <span className="text-slate-700 dark:text-slate-300 text-sm">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -98,14 +132,14 @@ const Pricing = () => {
                 className={`w-full py-3 rounded-full font-semibold transition-all duration-300 ${
                   plan.isPopular 
                     ? 'bg-gradient-primary text-white shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40' 
-                    : 'bg-slate-800 text-white hover:bg-slate-700'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700'
                 }`}
               >
                 {plan.buttonText}
               </button>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

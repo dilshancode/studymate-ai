@@ -1,5 +1,24 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" }
+  }
+};
 
 const faqs = [
   {
@@ -29,25 +48,38 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section className="py-24 relative bg-slate-900/30">
+    <section className="py-24 relative bg-slate-50/50 dark:bg-slate-900/30">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-sm font-bold tracking-widest text-blue-500 uppercase mb-3">Got Questions?</h2>
           <h3 className="text-3xl md:text-5xl font-bold mb-6">Frequently Asked <span className="text-gradient">Questions</span></h3>
-        </div>
+        </motion.div>
 
-        <div className="space-y-4">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="space-y-4"
+        >
           {faqs.map((faq, index) => (
-            <div 
+            <motion.div 
               key={index} 
-              className={`glass-card rounded-2xl overflow-hidden transition-all duration-300 ${openIndex === index ? 'border-blue-500/30 bg-navy-800/60' : 'hover:bg-navy-800/50'}`}
+              variants={itemVariants}
+              className={`glass-card rounded-2xl overflow-hidden transition-all duration-300 ${openIndex === index ? 'border-blue-500/30 bg-white dark:bg-navy-800/60' : 'hover:bg-white/80 dark:hover:bg-navy-800/50'}`}
             >
               <button
                 className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
                 // Toggle expansion state: if clicked item is already open, collapse all (-1); otherwise set to this index
                 onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
               >
-                <span className="font-semibold text-white text-lg">{faq.question}</span>
+                <span className="font-semibold text-slate-900 dark:text-white text-lg">{faq.question}</span>
                 {openIndex === index ? (
                   <ChevronUp className="w-5 h-5 text-blue-400 shrink-0" />
                 ) : (
@@ -55,21 +87,20 @@ const FAQ = () => {
                 )}
               </button>
               
-              {/* 
-                Animate accordion height expansion smoothly using Tailwind transition-all. 
-                When active, max-height increases from 0 to 96 (max-h-96) to prevent clipping on mobile wrap-around, 
-                and opacity transitions to 100%.
-              */}
-              <div 
-                className={`px-6 overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-96 pb-5 opacity-100' : 'max-h-0 opacity-0'}`}
+              {/* Animated accordion height expansion smoothly using Framer Motion */}
+              <motion.div 
+                initial={false}
+                animate={{ height: openIndex === index ? 'auto' : 0, opacity: openIndex === index ? 1 : 0 }}
+                transition={{ duration: 0.25, ease: 'easeInOut' }}
+                className="px-6 overflow-hidden"
               >
-                <p className="text-slate-400 leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed pb-5">
                   {faq.answer}
                 </p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

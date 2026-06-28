@@ -1,5 +1,24 @@
 import React from 'react';
 import { FileText, BrainCircuit, Lightbulb, Calendar, TrendingUp, FolderTree } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" }
+  }
+};
 
 const features = [
   {
@@ -42,32 +61,45 @@ const Features = () => {
       <div className="absolute top-1/2 right-1/4 translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <h2 className="text-sm font-bold tracking-widest text-blue-500 uppercase mb-3">Supercharge Your Learning</h2>
           <h3 className="text-3xl md:text-5xl font-bold mb-6">Everything you need to <span className="text-gradient">ace your exams</span></h3>
-          <p className="text-slate-400 text-lg">
+          <p className="text-slate-600 dark:text-slate-400 text-lg">
             Our suite of AI-powered tools is designed to help you study more efficiently, retain information longer, and get better grades with less stress.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {features.map((feature, index) => (
-            <div 
+            <motion.div 
               key={index} 
-              // Lift the card slightly (-translate-y-2) when hovered to create interactive depth
-              className="glass-card rounded-2xl p-8 hover:-translate-y-2 transition-transform duration-300 group cursor-pointer"
+              variants={cardVariants}
+              whileHover={{ y: -8, transition: { duration: 0.2 } }}
+              className="glass-card rounded-2xl p-8 transition-colors duration-300 group cursor-pointer"
             >
               {/* Grow the icon wrapper slightly when the parent card is hovered */}
-              <div className="w-12 h-12 rounded-xl bg-slate-800/80 border border-slate-700/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-12 h-12 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-sm">
                 {feature.icon}
               </div>
-              <h4 className="text-xl font-bold text-white mb-3">{feature.title}</h4>
-              <p className="text-slate-400 leading-relaxed">
+              <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{feature.title}</h4>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
                 {feature.description}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
