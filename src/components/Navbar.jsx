@@ -20,24 +20,24 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-nav">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          <div className="flex items-center gap-2">
+        <div className="flex items-center justify-between h-16 lg:h-20">
+          <div className="flex items-center gap-2 shrink-0">
             <div className="bg-gradient-primary p-2 rounded-xl">
               <BookOpen className="w-6 h-6 text-white" />
             </div>
-            <span className="font-heading font-bold text-xl text-slate-900 dark:text-white tracking-wide">
+            <span className="font-heading font-bold text-[1.35rem] text-slate-900 dark:text-white tracking-wide whitespace-nowrap">
               StudyMate AI
             </span>
           </div>
           
           {/* Desktop Nav Links */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+          <div className="hidden lg:block">
+            <div className="ml-6 xl:ml-10 flex items-baseline space-x-4 xl:space-x-8">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors px-3 py-2 rounded-md text-[0.95rem] font-medium whitespace-nowrap"
                 >
                   {link.label}
                 </a>
@@ -46,18 +46,18 @@ const Navbar = () => {
           </div>
           
           {/* Desktop CTA Buttons */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4 shrink-0">
             <ThemeToggle />
-            <button className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white font-medium text-sm transition-colors">
+            <button className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white font-medium text-[0.95rem] transition-colors whitespace-nowrap">
               Log in
             </button>
-            <button className="bg-gradient-primary text-white px-5 py-2.5 rounded-full font-medium text-sm shadow-lg shadow-blue-500/25">
+            <button className="bg-gradient-primary text-white px-4 py-2 rounded-full font-medium text-[0.95rem] shadow-lg shadow-blue-500/25 whitespace-nowrap">
               Get Started Free
             </button>
           </div>
 
           {/* Mobile Menu Button (Hamburger) & Theme Toggle */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-2">
             <ThemeToggle />
             <button
               onClick={toggleMenu}
@@ -85,7 +85,7 @@ const Navbar = () => {
             // Shrink and fade out smoothly when closed
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="md:hidden border-t border-slate-200 dark:border-slate-800/60 bg-white/70 dark:bg-navy-900/70 backdrop-blur-xl overflow-hidden"
+            className="lg:hidden border-t border-slate-200 dark:border-slate-800/60 bg-white/70 dark:bg-navy-900/70 backdrop-blur-xl overflow-hidden"
           >
             <div className="px-4 pt-2 pb-6 space-y-4">
               {navLinks.map((link) => (

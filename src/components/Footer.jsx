@@ -11,11 +11,11 @@ const Footer = () => {
               <div className="bg-gradient-primary p-1.5 rounded-lg">
                 <BookOpen className="w-5 h-5 text-white" />
               </div>
-              <span className="font-heading font-bold text-lg text-slate-900 dark:text-white">
+              <span className="font-heading font-bold text-[1.2rem] text-slate-900 dark:text-white">
                 StudyMate AI
               </span>
             </div>
-            <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed">
+            <p className="text-slate-600 dark:text-slate-400 text-[0.95rem] mb-6 leading-relaxed">
               Your intelligent learning companion. Transform study materials into mastery with the power of AI.
             </p>
             <div className="flex items-center gap-4">
@@ -35,43 +35,43 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="text-slate-900 dark:text-white font-bold mb-6">Product</h4>
+            <h4 className="text-slate-900 dark:text-white font-bold text-[1.05rem] mb-6">Product</h4>
             <ul className="space-y-4">
-              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-sm">Features</a></li>
-              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-sm">Pricing</a></li>
-              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-sm">Integrations</a></li>
-              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-sm">Changelog</a></li>
+              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-[0.95rem]">Features</a></li>
+              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-[0.95rem]">Pricing</a></li>
+              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-[0.95rem]">Integrations</a></li>
+              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-[0.95rem]">Changelog</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-slate-900 dark:text-white font-bold mb-6">Resources</h4>
+            <h4 className="text-slate-900 dark:text-white font-bold text-[1.05rem] mb-6">Resources</h4>
             <ul className="space-y-4">
-              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-sm">Help Center</a></li>
-              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-sm">Study Guides</a></li>
-              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-sm">Blog</a></li>
-              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-sm">Community</a></li>
+              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-[0.95rem]">Help Center</a></li>
+              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-[0.95rem]">Study Guides</a></li>
+              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-[0.95rem]">Blog</a></li>
+              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-[0.95rem]">Community</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-slate-900 dark:text-white font-bold mb-6">Company</h4>
+            <h4 className="text-slate-900 dark:text-white font-bold text-[1.05rem] mb-6">Company</h4>
             <ul className="space-y-4">
-              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-sm">About Us</a></li>
-              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-sm">Careers</a></li>
-              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-sm">Privacy Policy</a></li>
-              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-sm">Terms of Service</a></li>
+              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-[0.95rem]">About Us</a></li>
+              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-[0.95rem]">Careers</a></li>
+              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-[0.95rem]">Privacy Policy</a></li>
+              <li><a href="#" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors text-[0.95rem]">Terms of Service</a></li>
             </ul>
           </div>
         </div>
         
         <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-slate-500 text-sm">
+          <p className="text-slate-500 text-[0.95rem]">
             {/* Dynamically display the current calendar year to ensure copyright details stay up-to-date */}
             &copy; {new Date().getFullYear()} StudyMate AI, Inc. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <span className="text-slate-500 text-sm flex items-center gap-1">
+            <span className="text-slate-500 text-[0.95rem] flex items-center gap-1">
               Made with <span className="text-red-500">&hearts;</span> for students
             </span>
           </div>

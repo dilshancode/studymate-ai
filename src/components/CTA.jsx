@@ -20,6 +20,9 @@ const CTA = () => {
           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px]" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/20 rounded-full blur-[80px]" />
           
+          {/* Dot Matrix Pattern */}
+          <div className="absolute inset-0 bg-dot-pattern [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-45 dark:opacity-35 pointer-events-none" />
+          
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-white relative z-10">
             Ready to transform the way you learn?
           </h2>
