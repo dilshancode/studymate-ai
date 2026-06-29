@@ -2,7 +2,7 @@
 
 An intelligent, premium marketing landing page for **StudyMate AI**—your personal learning companion designed to help you study smarter, not harder.
 
-This project is built using a modern frontend stack with **React**, **Vite**, **Tailwind CSS**, and **Framer Motion**, matching the high-end **Luminous Intelligence** design system.
+This project is built using a modern frontend stack with **React**, **Vite**, **Tailwind CSS**, and **Framer Motion**, matching the high-end **Luminous Intelligence** design system with complete support for dynamic **Light/Dark theme modes**.
 
 ---
 
@@ -50,13 +50,15 @@ This project is built using a modern frontend stack with **React**, **Vite**, **
 
 ## 🚀 Key Features
 
-*   **Responsive Header & Mobile Menu**: A custom-designed navigation bar that collapses into a sleek, glassmorphic sliding menu drawer on mobile viewports.
+*   **Responsive Header & Mobile Menu**: A custom-designed navigation bar that collapses into a sleek, glassmorphic sliding menu drawer on mobile viewports, complete with a smooth theme switcher.
 *   **Hero Section & Mockup Dashboard**: Features key value propositions, interactive call-to-actions, and an animated product mockup with slow-drifting floating layers that simulate visual depth.
 *   **Feature Overview**: A card grid detailing key functionalities (AI summaries, flashcards, scheduler, progress metrics) with interactive translation hover effects.
+*   **Choose Your Study Brain (AI Agents Grid)**: Displays integration blocks for ChatGPT (GPT-4o/GPT-4), Gemini (1.5 Pro/Flash), and Claude (3.5 Sonnet) to suit different study requirements (coding, massive context, literature analysis).
 *   **How it Works Stepper**: A step-by-step process visualization containing custom gradient lines aligning step icons (`blue` ➔ `purple` ➔ `green`).
 *   **Testimonial Marquee**: An endless horizontal scrolling testimonial marquee powered by Framer Motion.
 *   **Pricing Matrix**: Tiered SaaS pricing options with highlight focus states and custom rim-light borders.
 *   **Interactive FAQ**: Accordion layouts managing viewport-safe text expansion.
+*   **Interactive Light & Dark Theme Toggle**: A custom theme provider (`ThemeContext`) coupled with a sliding, rotating mode icon that transitions seamlessly across all elements.
 
 ---
 
@@ -64,10 +66,11 @@ This project is built using a modern frontend stack with **React**, **Vite**, **
 
 This project strictly adheres to the **Luminous Intelligence** design standards:
 
-*   **Colors**: Rooted in cinematic **Midnight Navy** (`#0A0E1A` / `#0F131F`) with electric accents of violet and primary blue.
+*   **Colors**: Rooted in cinematic **Midnight Navy** (`#0A0E1A` / `#0F131F`) with electric accents of violet and primary blue, shifting to refined light mode styling with clean glass effects.
 *   **Typography**: Implements **Geist** for precise, developer-centric displays and labels, and **Inter** for highly readable body copy.
 *   **Glassmorphic Borders**: Implements a custom `.rim-light-border` utilizing relative bounding properties and top-down linear gradient pseudo-elements (white at 15% to 2% opacity) to simulate floating glass panels.
 *   **Orbital Glows**: Soft background radial gradient blur overlays placed behind components to elevate cards off the dark layout canvas.
+*   **Dynamic Background Patterns**: Modern dot matrix and grid overlays that automatically adapt to light/dark themes, adding depth to the visual grid.
 
 ---
 
